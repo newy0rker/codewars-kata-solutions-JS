@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+
+        function pyramid(n) {
+            let mainArray = [];
+            if (n <= 0) {
+                return mainArray;
+            } else {
+                let i = 1;
+                while (i <= n) {
+                    let newArray = [];
+                    for (let a = 1; a <= i; a++) {
+                        newArray.push(1);
+                    }
+                    mainArray.push(newArray);
+                    i++;
+                }
+            }
+            return mainArray;
+        }
+
+        let n = +prompt('Введите число > 0\n(результат работы программы смотреть в консоли)');
+        console.log(pyramid(n))
+    </script>
+</body>
+
+</html>

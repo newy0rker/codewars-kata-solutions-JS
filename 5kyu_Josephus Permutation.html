@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    'use strict'
+
+    function splicer(array, k) {
+        let delCount = k;
+        let resultArray = [];
+        while (array.length > 1) {
+            if (array.length <= k) {
+                break;
+            }
+            let tempArray = array.splice(0, delCount);
+            /f (array.length === 1) {
+                break;
+            } else {
+                resultArray.push(tempArray[tempArray.length - 1]);
+                tempArray.length = tempArray.length - 1;
+                if (tempArray.length > 0) {
+                    tempArray.forEach((element) => array.push(element)); // concat array + tempArray
+                    resultArray.push()
+                }
+            }
+        }
+        if (array.length <= delCount) {
+            delCount -= array.length;
+            splicer(array, delCount);
+        }
+        return resultArray;
+    }
+
+    console.log(splicer([1,2,3,4,5,6,7], 3));
+
+
+    /*
+    * function splicer(array, k) {
+        let delCount = k;
+
+        while (array.length > 1) {
+            if (array.length <= k) {
+                delCount -= array.length;
+                splicer(array, delCount);
+            }
+            let tempArray = array.splice(0, delCount);
+            if (array.length === 1) {
+                break;
+            } else {
+                tempArray.length = tempArray.length - 1;
+                if (tempArray.length > 0) {
+                    tempArray.forEach((element) => array.push(element)); // concat array + tempArray
+                }
+            }
+        }
+        return array;
+    }
+
+    console.log(splicer(['a', 'b'], 5));*/
+
+    /*
+    *   function splicer(array, k) {
+        let delCount = k;
+
+        function actionLoop(array, delCount) {
+            while (true) {
+                let i = 0;
+                if (array.length <= k) {
+                    delCount -= array.length;
+                    actionLoop (array, delCount);
+                }
+                let tempArray = array.splice(0, delCount);
+                tempArray.length = tempArray.length - 1; // del last empty element
+                tempArray.forEach((element) => array.push(element)); // concat array + tempArray
+                return array;
+            }
+        }
+        return actionLoop(array, delCount)
+    }
+
+    console.log(splicer(['a', 'b'], 5));*/
+
+    /*function josephus(items, k){
+        let resultArray = [];
+        for (let i = -1; i >= 0; i++) {
+            resultArray.push(items[i + k - 1]);
+            items.splice(i, 1);
+
+            if ((i += k - 1) >= items.length) {
+                i = items.length - i - 1;
+            } else {
+                i += k - 1;
+            }
+
+            if (items.length === 0) {
+                return resultArray;
+            }
+        }
+    }
+    console.log(josephus([1,2,3,4,5,6,7,8,9,10],2));*/
+
+</script>
+
+</html>

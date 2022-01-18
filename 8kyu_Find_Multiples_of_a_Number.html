@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+    'use strict'
+
+    function findMultiples(integer, limit) {
+        let arrayNumbers = [integer];
+        for (let i = 0; arrayNumbers[i] + integer <= limit; i++) {
+            if (arrayNumbers[i] + integer <= limit) {
+            arrayNumbers.push(arrayNumbers[i] + integer);
+        } else {
+            return arrayNumbers;
+            }
+        }
+        return arrayNumbers;
+    }
+    console.log(findMultiples(5, 25));
+</script>
+</body>
+
+</html>
+
+/*
+function findMultiples(integer, limit) {
+let arrayNumbers = [integer];
+let i = 0;
+while(arrayNumbers[i] < limit) {
+arrayNumbers.push(arrayNumbers[i] + integer);
+i++;
+}
+return arrayNumbers;
+}
+*/

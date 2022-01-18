@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+
+        function evenOrOdd(str) {
+            let even = 0;
+            let odd = 0;
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] % 2 === 0) {
+                    even += parseInt(str[i]);
+                } else {
+                    odd += parseInt(str[i]);
+                }
+            }
+            if (even === odd) {
+                return 'Even and Odd are the same';
+            } else if (even > odd) {
+                return 'Even is greater than Odd';
+            } else {
+                return 'Odd is greater than Even';
+            }
+        }
+        console.log(evenOrOdd('112'));
+    </script>
+</body>
+</html>

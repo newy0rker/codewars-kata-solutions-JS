@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+    'use strict'
+
+    function pageDigits(pages) {
+        let result = 0;
+        for (let i = 1; i <= parseInt(pages); i++) {
+            result += i.toString().length;
+            console.log(result)
+        }
+        return BigInt(result);
+    }
+    console.log(pageDigits(400000000000000000n));
+
+</script>
+</body>
+
+</html>

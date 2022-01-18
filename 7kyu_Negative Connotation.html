@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+
+        function connotation(str) {
+            let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+            let strArray = str.toLowerCase().split(' ');
+            for (let i = 0; i < strArray.length; i++) {
+                if(strArray[i] === ' ' || strArray[i] === '') {
+                    strArray.splice(i, 1)
+                    i -= 1;
+                }
+            }
+            let varTrue = 0;
+            let varFalse = 0;
+            for (let i = 0; i < strArray.length; i++) {
+                if (alphabet.slice(0, 13).includes(strArray[i][0])) {
+                    varTrue += 1;
+                } else {
+                    varFalse += 1;
+                }
+            }
+            return varTrue >= varFalse;
+        }
+        console.log(connotation('  qd  qfk      i   b     igx h  m  srt  o'));
+    </script>
+</body>
+</html>

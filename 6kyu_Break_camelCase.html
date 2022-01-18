@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    'use strict'
+
+    function solution(string) {
+        if (string.slice(1, string.length) === string.slice(1, string.length).toLowerCase()) {
+            return string;
+        }
+        let result = [];
+        let upperIndexes = [];
+        for(let i = 0; i < string.length; i++) {
+            if(string[i] === string[i].toUpperCase()) {
+                upperIndexes.push(i);
+            }
+        }
+        if (upperIndexes.length === 1) {
+            result.push(string.slice(0, upperIndexes[0]));
+            result.push(string.slice(upperIndexes[0], upperIndexes[string.length]))
+        }
+        if (upperIndexes.length === 2) {
+            result.push(string.slice(0, upperIndexes[0]));
+            result.push(string.slice(upperIndexes[0], upperIndexes[1]));
+            result.push(string.slice(upperIndexes[1]));
+        }
+        if (upperIndexes.length > 2) {
+            result.push(string.slice(0, upperIndexes[0]))
+            for (let i = 0; i < upperIndexes.length; i++) {
+                if (i === upperIndexes.length - 1) {
+                    result.push(string.slice(upperIndexes[i]));
+                } else {
+                    result.push(string.slice(upperIndexes[i], upperIndexes[i + 1]));
+                }
+            }
+        }
+        return result.join(' ');
+    }
+
+    console.log(solution('caMeuCasIng'));
+
+
+    /*let upperIndex = null;
+
+
+        /*
+        function ccIdentifier(letter) {
+            return letter === letter.toUpperCase();
+        }
+        let result = [];
+        let upperIndex = [];
+
+        for(let i = 0; i < string.length; i++) {
+            if(string[i] == string[i].toUpperCase())
+                result.push(string.slice());
+                currentIndex = i;
+        }*/
+</script>
+
+</html>

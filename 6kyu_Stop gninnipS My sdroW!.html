@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+
+        function spinWords(string){
+            let strArray = string.split(' ');
+            let result = [];
+            for (let i = 0; i < strArray.length; i++) {
+                if (strArray[i].length >= 5) {
+                    result.push(strArray[i].split('').reverse().join(''));
+                } else {
+                    result.push(strArray[i])
+                }
+            }
+            return result.join(' ');
+        }
+
+        console.log(spinWords("Hey fellow warriors"));
+    </script>
+</body>
+
+</html>

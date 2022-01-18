@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+    'use strict'
+
+    function rgb(r, g, b){
+        function hexGenerator (number) {
+            if (number <= 0) {
+                number = '00';
+            } else if (number >= 10 && number <= 15) {
+                number = '0' + number.toString(16).toUpperCase();
+            } else if (number > 255) {
+                number = 'FF';
+            } else {
+                number = number.toString(16).toUpperCase();
+            }
+            return number;
+        }
+        let rDec = hexGenerator(r);
+        let gDec = hexGenerator(g);
+        let bDec = hexGenerator(b);
+
+        return rDec + gDec + bDec;
+    }
+
+    console.log(rgb(133, 10, 85));
+
+</script>
+</body>
+
+</html>

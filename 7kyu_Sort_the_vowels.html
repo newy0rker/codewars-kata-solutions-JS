@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+
+        function sortVowels(s){
+            if(typeof s ===  'string') {
+                let vowelsList = ['A', 'E', 'I', 'O', 'U'];
+                let stringArray = s.split('');
+                let newString = '';
+
+                for (let i = 0; i < stringArray.length; i++) {
+                    if (vowelsList.includes(stringArray[i].toUpperCase())) {
+                        if (i === stringArray.length - 1){
+                            newString += '|' + s[i];
+                        } else {
+                            newString += '|' + s[i] + '\n';
+                        }
+                    } else {
+                        if (i === stringArray.length - 1){
+                            newString += s[i] + '|';
+                        } else {
+                            newString += s[i] + '|\n';
+                        }
+                    }
+                }
+                return newString;
+            } else {
+                return '';
+            }
+        }
+        console.log(sortVowels(Rnd Te5T));
+    </script>
+</body>
+
+</html>

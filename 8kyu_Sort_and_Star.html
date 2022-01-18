@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+    'use strict'
+
+    function twoSort(s) {
+        let resultStr = '';
+        for (let i = 0; i < s.sort()[0].length; i++) {
+            resultStr += s.sort()[0][i] + '***';
+        }
+        return resultStr.slice(0, -3);
+    }
+    console.log(twoSort(["bitcoin", "take", "over", "the", "world", "maybe", "who", "knows", "perhaps"]));
+</script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+
+        function waterbombs(fire, w) {
+            let fireArray = fire.split('Y');
+            let counter = 0;
+            fireArray.forEach((element) => {
+                if(Number.isInteger(element.length / w)) {
+                    counter += element.length / w;
+                } else {
+                    counter += (Math.trunc(element.length / w) + 1);
+                }
+            })
+            return counter;
+        }
+
+        console.log(waterbombs('xxxYxxxYxxx', 2));
+    </script>
+</body>
+
+</html>

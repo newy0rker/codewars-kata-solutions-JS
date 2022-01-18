@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+    'use strict'
+
+    function moveZeros (arr) {
+        let newArr = [];
+        arr.forEach (function(element) {
+            if (element === 0) {
+                newArr.push(element);
+            }
+        });
+
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === 0) {
+                arr.splice(i, 1);
+                i -= 1;
+            }
+        }
+        return arr.concat(newArr);
+    }
+
+    console.log(moveZeros(["a","b",null,"c",0,0,0,0,0,0,0,0,0,"d",1,false,1,3,[],1,9,{},9,0,0,0,false,0,0]));
+</script>
+</body>
+
+</html>

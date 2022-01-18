@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+
+        function createPhoneNumber(numbers){
+            return `(${numbers.join('').slice(0, 3)}) ${numbers.join('').slice(3, 6)}-${numbers.join('').slice(6)}`;
+            /*
+            let partOne = numbers.slice(0,3);
+            let partTwo = numbers.join('').slice(3,6);
+            let partThree = numbers.join('').slice(6);
+
+            return `(${partOne}) ${partTwo}-${partThree}`
+            */
+        }
+
+        console.log(createPhoneNumber([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]));
+
+    </script>
+</body>
+
+</html>

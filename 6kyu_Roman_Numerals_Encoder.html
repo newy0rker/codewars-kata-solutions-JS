@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+    'use strict'
+
+    function solution(number) {
+        let romanNumber = '';
+
+        // тысяча
+        if (number === 1000) {
+            return 'M';
+        }
+
+        if (number > 1000) {
+            while (number / 1000 > 1) {
+                romanNumber += 'M';
+                number -= 1000;
+            }
+        }
+
+        /*-----------------*/
+
+        //пятьсот
+        if (number === 500) {
+            return 'D';
+        }
+
+        //меньше
+        if (number < 500) {
+            if (number <= 300) {
+                while (number/100 > 1) {
+                    romanNumber += 'С';
+                    number -= 100;
+                }
+            }
+            if (number > 300) {
+                if (number < 400) {
+                    romanNumber += 'ССС';
+                    number -= 300;
+                }
+                if (number >= 400) {
+                    romanNumber += 'CD';
+                    number -= 400;
+                }
+            }
+        }
+
+        //больше
+        if (number > 500) {
+            if (number <= 800) {
+                romanNumber += 'D';
+                number -= 500;
+                while (number/100 > 1) {
+                    romanNumber += 'C';
+                    number -= 100;
+                }
+            }
+            if (number > 800) {
+                if (number < 900) {
+                    romanNumber += 'DCCC';
+                    number -= 800;
+                }
+                if (number >= 900) {
+                    romanNumber += 'CM';
+                    number -= 900;
+                }
+            }
+        }
+
+        /*-----------------*/
+
+        // сто
+        if (number === 100) {
+            romanNumber +=  'C';
+        }
+
+        /*-----------------*/
+
+        //пятьдесят
+        if (number === 50) {
+            romanNumber +=  'L';
+        }
+
+        //меньше
+        if (number < 50) {
+            if (number <= 30) {
+                while (number/10 > 1) {
+                    romanNumber += 'X';
+                    number -= 10;
+                }
+            }
+            if (number > 30) {
+                if (number < 40) {
+                    romanNumber += 'XXX';
+                    number -= 30;
+                }
+                if (number >= 40) {
+                    romanNumber += 'XL';
+                    number -= 40;
+                }
+            }
+        }
+
+        //больше
+        if (number > 50) {
+            if (number <= 80) {
+                romanNumber += 'L';
+                number -= 50;
+                while (number/10 > 1) {
+                    romanNumber += 'X';
+                    number -= 10;
+                }
+            }
+            if (number > 80) {
+                if (number < 90) {
+                    romanNumber += 'LXXX';
+                    number -= 80;
+                }
+                if (number >= 90) {
+                    romanNumber += 'XC';
+                    number -= 90;
+                }
+            }
+        }
+
+        //десятки + единицы
+        switch (number) {
+            case 10:
+                romanNumber += 'X';
+                break;
+            case 9:
+                romanNumber += 'IX';
+                break;
+            case 8:
+                romanNumber += 'VIII';
+                break;
+            case 7:
+                romanNumber += 'VII';
+                break;
+            case 6:
+                romanNumber += 'VI';
+                break;
+            case 5:
+                romanNumber += 'V';
+                break;
+            case 4:
+                romanNumber += 'IV';
+                break;
+            case 3:
+                romanNumber += 'III';
+                break;
+            case 2:
+                romanNumber += 'II';
+                break;
+            case 1:
+                romanNumber += 'I';
+                break;
+        }
+        return romanNumber;
+    }
+
+    console.log(solution(+prompt()));
+</script>
+</body>
+
+</html>

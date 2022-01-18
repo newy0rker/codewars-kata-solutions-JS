@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    'use strict'
+
+    function validISBN10(isbn) {
+        if (isbn.length !== 10 || /[a-wy-zA-WY-Z]/g.test(isbn) || /[X]/g.test(isbn.slice(0, isbn.length-1))) {
+            return false;
+        }
+        let result = 0;
+        for (let i = 1; i <= 10; i++) {
+            if (isbn[i-1] === 'X') {
+                result += 10 * i;
+            } else {
+                result += isbn[i-1] * i;
+            }
+        }
+        return result % 11 === 0;
+    }
+
+    console.log(validISBN10('048665088XZ'));
+
+</script>
+
+</html>

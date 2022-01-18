@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+    'use strict'
+
+    function mergeArrays(a, b) {
+        function maxLengthFinder (a, b) {
+            if (a.length > b.length) {
+                return a.length;
+            } else {
+                return b.length;
+            }
+        }
+        let maxLength = maxLengthFinder(a, b)
+        let result = [];
+        for(let i = 0; i < maxLength; i++) {
+            if (a[i] && b[i]) {
+                result.push(a[i]);
+                result.push(b[i])
+            }
+            if (!a[i]) {
+                b.slice(i).forEach (element => result.push(element));
+                return result;
+            }
+            if (!b[i]) {
+                a.slice(i).forEach (element => result.push(element));
+                return result;
+            }
+        }
+        return result;
+    }
+
+    console.log(mergeArrays(['a', 'b', 'c', 'd', 'e'], [1, 2, 3, 4, 5]));
+
+</script>
+</body>
+
+</html>

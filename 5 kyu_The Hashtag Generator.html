@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+
+        function generateHashtag(str) {
+            if (!str.match(/[a-z]/i)) {
+                return false;
+            }
+            let strArray = str.split(' ').filter(element => element !== '');
+            for (let i = 0; i < strArray.length; i++) {
+                let element = strArray[i][0].toUpperCase() + strArray[i].slice(1);
+                strArray.splice(i, 1, element);
+            }
+            let hashtag =  '#' + strArray.join('');
+            if (hashtag.length <= 140) {
+                return hashtag;
+            } else {
+                return false;
+            }
+        }
+
+        console.log(generateHashtag('hello    wolrd'));
+    </script>
+</body>
+
+</html>

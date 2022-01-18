@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+
+        function mobileKeyboard(str){
+            let oneClick = '1234567890*#';
+            let twoClick = 'adgjmptw';
+            let threeClick = 'behknqux';
+            let fourClick = 'cfilorvy';
+            let fiveClick = 'sz';
+            let result = 0;
+
+            for(let i = 0; i < str.length; i++) {
+                if (oneClick.includes(str[i])) {
+                    result += 1;
+                } else if (twoClick.includes(str[i])) {
+                    result += 2;
+                } else if (threeClick.includes(str[i])) {
+                    result += 3;
+                } else if (fourClick.includes(str[i])){
+                    result += 4;
+                } else {
+                    result += 5;
+                }
+            }
+            return result;
+        }
+        console.log(mobileKeyboard('codewars'));
+    </script>
+</body>
+
+</html>

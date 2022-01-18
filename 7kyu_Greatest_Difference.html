@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+
+        function diff(str){
+            let elementDifference = [];
+            for (let i = 0; i < str.length;  i++) {
+                elementDifference[i] = Math.abs(str[i].split('-')[0] - str[i].split('-')[1]);
+            }
+
+            let maxValue = [elementDifference[0]];
+            let maxValueIndex = [0];
+            let counter = [];
+            elementDifference.forEach(function(element, index, array) {
+                if (element > maxValue) {
+                    maxValue.shift();
+                    maxValueIndex.shift();
+                    maxValue[0] = element;
+                    maxValueIndex[0] = index;
+                }
+
+                if (elementDifference[0] == element) {
+                    counter.push(element);
+                }
+            });
+
+            if (counter.length === elementDifference.length) {
+                return false;
+            } else {
+                return str[maxValueIndex[0]];
+            }
+        }
+        console.log(diff(['52542-522','0-1000000']));
+    </script>
+</body>
+</html>

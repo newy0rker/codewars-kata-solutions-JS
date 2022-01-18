@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+
+        function multiTable(number) {
+            let counter = 1;
+            let arrayResult = [];
+            while (counter !== 11) {
+                arrayResult.push([`${counter} * ${number} = ${counter * number}`], ['\n'])
+                counter++;
+            }
+            return arrayResult.slice(0, arrayResult.length - 1).join('');
+        }
+        console.log(multiTable(5));
+    </script>
+</body>
+
+</html>
